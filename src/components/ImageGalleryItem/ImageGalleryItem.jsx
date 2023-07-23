@@ -17,21 +17,14 @@ export class ImageGalleryItem extends Component {
     const { isModalOpen } = this.state;
 
     return (
-      <GalleryItem onClick={this.toggleModal}>
-        <GalleryImg
-          src={webformatURL}
-          alt={tags}
-          loading="lazy"
-        />
-
+      <>
+        <GalleryItem onClick={this.toggleModal}>
+          <GalleryImg src={webformatURL} alt={tags} loading="lazy" />
+        </GalleryItem>
         {isModalOpen && (
-          <Modal
-            url={largeImageURL}
-            alt={tags}
-            onClose={this.toggleModal}
-          />
+          <Modal url={largeImageURL} alt={tags} onClose={this.toggleModal} />
         )}
-      </GalleryItem>
+      </>
     );
   }
 }

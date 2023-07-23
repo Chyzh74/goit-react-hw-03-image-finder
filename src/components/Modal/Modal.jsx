@@ -1,8 +1,11 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
+// import { createPortal } from 'react-dom';
 import { Overlay, ModalImage } from './Modal.styled';
 
-export class Modal extends React.Component {
+// const modalRoot = document.querySelector('#modal-root');
+
+export class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleClick);
   }
@@ -20,7 +23,6 @@ export class Modal extends React.Component {
       this.props.onClose();
     }
   };
-
   render() {
     const { url, alt } = this.props;
     return (
@@ -31,6 +33,16 @@ export class Modal extends React.Component {
       </Overlay>
     );
   }
+  // render() {
+  //   const { url, alt } = this.props;
+  //   return createPortal(
+  //     <Overlay onClick={this.onOverlayClickClose}>
+  //       <ModalImage>
+  //         <img src={url} alt={alt} />
+  //       </ModalImage>
+  //     </Overlay>, modalRoot
+  //   );
+  // }
 }
 
 Modal.propTypes = {
